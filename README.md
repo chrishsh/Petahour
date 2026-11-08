@@ -2,7 +2,6 @@
 
 A working, tested proof of concept of the Petahour on-chain architecture, covering Petahour Labs, Oracle and Proof-of-Delivery, zkML, Arbitrum/Base and on-chain/off-chain integration. It also includes a pure-Python notebook that explains each mechanism.
 
-*The research calls this venture the Taiwan Compute Exchange, or TCX. It is now Petahour, a name tied to no single country and no single chip. Taiwan is its first market, not its limit.*
 
 ## Where to start
 
