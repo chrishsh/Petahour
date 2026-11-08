@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.24;
 
 /// @notice Anything that can answer "may this wallet touch the protocol?".
