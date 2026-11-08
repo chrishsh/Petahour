@@ -1,0 +1,25 @@
+[
+  {
+    "round": 1,
+    "basis": "COST-MODEL-SEED",
+    "print_usd": 3.628591,
+    "inputs_hash": "0x538a9836c186ce3a67a6f0c6e828ed159976230fb9a94d9ad193e3d8ee80437f",
+    "trade_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "round": 2,
+    "basis": "VWAP",
+    "print_usd": 3.653429,
+    "inputs_hash": "0xb719a7653b6330231246f0343a6f8ceadc6509e473c0c4c68f523e442935af5e",
+    "trade_ids": [
+      6,
+      7,
+      8
+    ]
+  }
+]

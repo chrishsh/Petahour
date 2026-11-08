@@ -1,0 +1,416 @@
+{
+  "killed": 82,
+  "total": 82,
+  "mutants": [
+    {
+      "mutant": "buyer limit not enforced",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "overfill not checked",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "order signature not checked",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "TEE seal not checked",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "zk proof not checked",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "dispute window skipped",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "fee over-credited",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "seller fee not charged",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "seller fee not pro rata",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "buyer fee not locked",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "seller fee cap removed",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "lapsed passport can sell",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "passport fee not collected",
+      "file": "core/ComputePassport.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "launch discount can be stockpiled",
+      "file": "core/ComputePassport.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "renewal loses paid time",
+      "file": "core/ComputePassport.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "discount above 100% accepted",
+      "file": "core/ComputePassport.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "default fund cover dropped",
+      "file": "core/DvPEscrow.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "duplicate signers accepted",
+      "file": "core/Federation.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "oversell guard removed",
+      "file": "core/CapacityPool.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "bit-packing shift broken",
+      "file": "core/CapacityPool.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "16-bit lane overflow allowed",
+      "file": "core/CapacityPool.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "attestation replay allowed",
+      "file": "core/ProofOfDeliveryOracle.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "proof not bound to trade",
+      "file": "zk/ZkDeliveryAdjudicator.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "deviation guard removed",
+      "file": "core/TCPIOracle.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "audit hash not signed",
+      "file": "core/TCPIOracle.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "stale prices accepted",
+      "file": "labs/TCPIPriceAdapter.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "receipt transfer unrestricted",
+      "file": "labs/GPUWarehouseReceipt.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "bad debt charged repeatedly",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "origination fee not taken from the loan",
+      "file": "labs/IsolatedLendingMarket.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "rollovers pay origination again",
+      "file": "labs/IsolatedLendingMarket.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "licence clock loses time",
+      "file": "labs/IsolatedLendingMarket.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "a senior loss comes off the mark",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "a covered loss stays on the mark",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the mark falls with the vault",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the curator is paid twice for one gain",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "curator paid double",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "deposits counted as income",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "withdrawals not taken off the mark",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "quoted value ignores the fee",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "deposit price ignores the fee",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "last lender leaves the fee behind",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "seniors earn without limit",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the curator's fee comes out of the seniors' yield",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "losses never reach first-loss capital",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the excess vanishes",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "senior value includes first-loss money",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the yield hurdle never rises",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "settling loses the yield earned so far",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "settling counts the same days twice",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "dust stays owed to nobody",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the hurdle ignores interest kept by seniors",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the next senior inherits an old hurdle",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "a deposit skips settlement",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "a late investor catches past earnings",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can draw first-loss money",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can book first-loss capital",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "first-loss capital not recorded",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "first-loss money counted as income",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "first-loss exit not recorded",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "first-loss exit stays on the mark",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "first-loss can leave ahead of a loss",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "first-loss exit raises no cash",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "a shortfall follows new first-loss money",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "the tranche can be rebound",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can bind the tranche",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can lend the pool",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can pull the pool from the market",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can burn valuable first-loss shares",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "clearing shares moves a loss onto seniors",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "any senior yield accepted",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "fee recipient can block depositors",
+      "file": "labs/ComputeCreditVault.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "licence paid repeatedly",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "Labs can withdraw ahead of the licence",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "withdrawal skips the licence",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "Labs co-invests ahead of the licence",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can co-invest Labs' money",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can pull Labs' co-investment",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "anyone can withdraw Labs' money",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "treasury can be rebound",
+      "file": "labs/LabsTreasury.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "healthy positions liquidatable",
+      "file": "labs/IsolatedLendingMarket.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "frozen wallets stay eligible",
+      "file": "core/MemberRegistry.sol",
+      "result": "killed"
+    },
+    {
+      "mutant": "passport transferable",
+      "file": "core/ComputePassport.sol",
+      "result": "killed"
+    }
+  ]
+}

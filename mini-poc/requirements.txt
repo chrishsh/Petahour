@@ -1,0 +1,11 @@
+# Mini-PoC notebook. Pure Python: no Node, Foundry or blockchain needed.
+jupyterlab>=4.2
+numpy>=2.0
+pandas>=2.2
+matplotlib>=3.9
+scikit-learn>=1.5
+requests>=2.32
+eth-account>=0.13
+py_ecc>=8.0
+cryptography>=43
+PyJWT>=2.9

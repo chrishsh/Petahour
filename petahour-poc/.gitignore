@@ -1,0 +1,13 @@
+node_modules/
+lib/
+out/
+cache/
+broadcast/
+__pycache__/
+.pytest_cache/
+.env
+deployments/*.json
+reports/*
+!reports/.gitkeep
+circuits/build/*.r1cs
+circuits/build/*.sym

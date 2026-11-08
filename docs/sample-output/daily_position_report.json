@@ -1,0 +1,145 @@
+{
+  "report": "Daily position and surveillance report (SIMULATED, not a regulatory filing)",
+  "recipients": [
+    "FSC (classification dialogue)",
+    "MOEA / NSTC (voluntary)"
+  ],
+  "trades": 8,
+  "gpu_hours": 1152,
+  "gross_usd": 4188.63,
+  "vat_ntd_total": 6550.79,
+  "by_status": {
+    "Settled": 7,
+    "Defaulted": 1
+  },
+  "ccp_legs": [
+    {
+      "trade_id": 1,
+      "gpu_hours": 144,
+      "price_usd": 3.615,
+      "leg": "buy",
+      "member": "0x71bE63f3384f5fb98995898A86B02Fb2426c5788",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 1,
+      "gpu_hours": 144,
+      "price_usd": 3.615,
+      "leg": "sell",
+      "member": "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 2,
+      "gpu_hours": 48,
+      "price_usd": 3.615,
+      "leg": "buy",
+      "member": "0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 2,
+      "gpu_hours": 48,
+      "price_usd": 3.615,
+      "leg": "sell",
+      "member": "0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 3,
+      "gpu_hours": 144,
+      "price_usd": 3.615,
+      "leg": "buy",
+      "member": "0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 3,
+      "gpu_hours": 144,
+      "price_usd": 3.615,
+      "leg": "sell",
+      "member": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 4,
+      "gpu_hours": 48,
+      "price_usd": 3.615,
+      "leg": "buy",
+      "member": "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 4,
+      "gpu_hours": 48,
+      "price_usd": 3.615,
+      "leg": "sell",
+      "member": "0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 5,
+      "gpu_hours": 192,
+      "price_usd": 3.62859,
+      "leg": "buy",
+      "member": "0x71bE63f3384f5fb98995898A86B02Fb2426c5788",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 5,
+      "gpu_hours": 192,
+      "price_usd": 3.62859,
+      "leg": "sell",
+      "member": "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 6,
+      "gpu_hours": 192,
+      "price_usd": 3.62859,
+      "leg": "buy",
+      "member": "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 6,
+      "gpu_hours": 192,
+      "price_usd": 3.62859,
+      "leg": "sell",
+      "member": "0x09DB0a93B389bEF724429898f539AEB7ac2Dd55f",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 7,
+      "gpu_hours": 192,
+      "price_usd": 3.62859,
+      "leg": "buy",
+      "member": "0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 7,
+      "gpu_hours": 192,
+      "price_usd": 3.62859,
+      "leg": "sell",
+      "member": "0x09DB0a93B389bEF724429898f539AEB7ac2Dd55f",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 8,
+      "gpu_hours": 192,
+      "price_usd": 3.7,
+      "leg": "buy",
+      "member": "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+      "counterparty": "PETAHOUR-CCP"
+    },
+    {
+      "trade_id": 8,
+      "gpu_hours": 192,
+      "price_usd": 3.7,
+      "leg": "sell",
+      "member": "0xBcd4042DE499D14e55001CcbB24a551F3b954096",
+      "counterparty": "PETAHOUR-CCP"
+    }
+  ]
+}

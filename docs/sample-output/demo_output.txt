@@ -1,0 +1,183 @@
+Local chain up (chain id 31337); deploying both entities
+─────────────── Setup: market data, members and the default fund ───────────────
+  [live] USD/TWD 32.8428 from open.er-api.com (live)
+  [live] B200: median ask US$7.5016/GPU-hr over 6 offers (vast.ai (live asks))
+  [live] H200: median ask US$4.6058/GPU-hr over 9 offers (vast.ai (live asks))
+  [live] H100: median ask US$3.0007/GPU-hr over 7 offers (vast.ai (live asks))
+  [live] A100: median ask US$0.6674/GPU-hr over 27 offers (vast.ai (live asks))
+  [mock] MI300X: median ask US$2.6/GPU-hr over 0 offers (report Table 3.2 
+(static))
+  [mock] Silicon Data index (assumed protocol): {'SDB200RT': 6.4922, 'SDH100RT':
+2.974, 'SDA100RT': 1.816}
+  [off-chain] Cost-model reference: NT$119.17 = US$3.63/GPU-hr at live FX 
+(report: NT$114.09 at 31.0, a +4.45% NT$ move)
+  [off-chain] SPAN-style margin on 30 days of the mock index: 5.0% of notional 
+(on-chain rate is 20%)
+  [off-chain] Pantera cross-check: US$1.88/hr at Petahour's utilization vs 
+US$1.90 here; direct floor gap US$0.27
+  [on-chain] 9 members passed screening and were enrolled (wallet flags only, no
+personal data)
+  [on-chain] Members funded in simulated tUSD; default fund seeded with 25,000 
+tUSD
+────────────── S1  Happy path: passport to T+1 settlement to TCPI ──────────────
+  [mock] NRAS issued ES384 EAT tokens; each federation node verified them 
+off-chain
+  [on-chain] 3 Compute Passports minted by federation quorum; attestations 
+anchored; capacity listed
+  PASS Passport fee paid by sellers: 720.00 tUSD for 24 GPUs at the 2027 launch 
+price of 30.00 per GPU
+  [off-chain] 6 simulated client orders passed the FIX gateway and pre-trade 
+risk, each EIP-712 signed by its client
+  [off-chain] Day-ahead auction cleared 384 GPU-hours at US$3.6150 in 27 
+microseconds
+  [on-chain] 4 trades settled into DvP escrow; both signatures and all limits 
+re-checked by the contract
+  [on-chain] T+0: hosts sealed telemetry; sellers claimed delivery (Merkle root 
+and Poseidon commitment stored)
+  PASS opML watchtower re-executed trade 1: claim matches telemetry
+  PASS opML watchtower re-executed trade 2: claim matches telemetry
+  PASS opML watchtower re-executed trade 3: claim matches telemetry
+  PASS opML watchtower re-executed trade 4: claim matches telemetry
+  [on-chain] T+1: dispute window closed unchallenged; escrow released
+  PASS all trades Settled
+  PASS escrow locks fully released
+  PASS marketplace fee from both sides: 17.34 buyer + 17.34 seller = 2.50% of 
+1,387.47 tUSD delivered
+  [on-chain] TCPI-B200 = US$3.6286/GPU-hr (COST-MODEL-SEED, 384 GPU-hours, 
+US$1.3439/PFLOP-hr), published by federation quorum
+  PASS Chainlink-shaped feed returns the published print
+  PASS audit: the on-chain inputs hash matches the settled trades
+  PASS audit: below the volume threshold, the print stays on the cost-model 
+reference: US$3.6286
+  [mock] Published basis vs vendor index: US$-2.86/GPU-hr, or US$-2,090 per 730 
+GPU-hour contract (reporting only, never an input)
+────────── S2  Seller over-claims: challenged, cannot prove, slashed ───────────
+  [off-chain] Host measured 87.46% uptime with thermal throttling and ECC errors
+  [on-chain] Seller claimed 100.00% uptime. The telemetry seal is valid: the 
+host told the truth, the seller did not
+  PASS opML watchtower detected the mismatch: claimed uptime 100.00% exceeds 
+measured 87.46%; SLA model fails on the measured telemetry
+  [on-chain] Buyer posted a 100 tUSD bond and challenged inside the T+1 window
+  PASS zkML prover could not build a proof: no valid witness exists for a false 
+claim
+  [on-chain] Waterfall: buyer refunded 705.40; 125.40 from collateral; 48.77 
+from default fund; challenger reward 13.93
+  PASS trade Defaulted
+  PASS buyer whole, plus penalty and challenger reward
+  PASS seller lost its full collateral
+  PASS default fund paid the shortfall
+  PASS host suspended: it can no longer sell
+─ S3  False challenge: seller proves delivery with zkML, telemetry stays priv… ─
+  [on-chain] Buyer challenged an honest delivery, hoping for a free ride
+  [off-chain] Groth16 proof generated in 479 ms (2,259 constraints)
+  [on-chain] Verified on-chain for 323,292 gas, which also settled the trade
+  [on-chain] Public inputs were only: commitment, model hash, threshold, claimed
+uptime 9994 bps, trade id 6
+  PASS no raw telemetry value appears in the public inputs
+  PASS trade Settled without any human ruling
+  PASS seller paid, less its fee, and took the challenger's 100 tUSD bond
+  PASS false challenger lost the bond
+  [off-chain] Now an honest partial delivery: 3 real outage hours, reported 
+truthfully
+  PASS watchtower accepts an honest claim of 87.46% uptime
+  [on-chain] Paid pro rata 609.32 of 696.69, less a 7.62 fee and a 43.68 SLA 
+credit to the buyer
+  PASS an honest seller is never slashed for reporting an outage
+  PASS seller receives pro-rata payment and its collateral, less its fee and the
+SLA credit, plus the bond
+─────────── S4  Compliance: denied party, restricted country, freeze ───────────
+  PASS screening refused onboarding: Shadow Compute Trading Ltd: DENIED_PARTY
+  PASS screening refused onboarding: Ordinary Trading Co (sim): 
+EAR_COUNTRY_GROUP_D5
+  PASS refused wallet was never enrolled
+  PASS unscreened wallet tries to deposit -> 
+NotEligible(0xcd3b766ccdd6ae721141f452c550ca635964ce71)
+  [on-chain] Compliance froze a member after a list update, with immediate 
+effect
+  PASS frozen member's order reaches settlement -> 
+NotEligible(0x1cbd3b2770909d4e10f157cabc84c7264073c9ec)
+  PASS frozen member tries to withdraw -> 
+NotEligible(0x1cbd3b2770909d4e10f157cabc84c7264073c9ec)
+───────── S5  Attacks: every one must be refused, for the right reason ─────────
+  PASS compromised matcher overcharges the buyer by 0.0001% -> 
+PriceOutsideLimits()
+  PASS matcher forges the buyer's signature -> 
+BadSignature(0xfabb0ac9d68b0b445fb7357272ff202c5651694a)
+  PASS seller sells GPU-hours it already sold -> Oversold(498481)
+  PASS seller forges telemetry without the sealed TEE key -> InvalidSeal()
+  PASS host with tampered firmware refused by federation: overall attestation 
+result is false
+  PASS one rogue federation node acts alone -> QuorumNotMet()
+  PASS TCPI pushed 3x in one print -> DeviationTooLarge(20000)
+──────────── S6  Petahour Labs: receipts, lending and a TCPI crash ─────────────
+  [on-chain] Petahour Labs is a separate deployer with its own allow-list; it 
+only reads the onshore venue's contracts
+  PASS Labs admin controls Labs contracts and holds no role on Petahour core
+  [on-chain] TCPI-B200 now US$3.6534 (VWAP, 552 GPU-hours settled since the last
+print; trailing 30-day volume 936 vs a 500 threshold)
+  PASS audit: print recomputed from on-chain trades alone: US$3.6534
+  PASS Labs onboarding policy refuses retail: denied: Petahour Labs is 
+institutional only
+  [off-chain] Taiwan supplier onboarded with a flag: LEGAL-REVIEW: Taiwan user, 
+Virtual Asset Service Act
+  PASS Taiwan users are flagged for a Virtual Asset Service Act opinion
+  [on-chain] Receipt #1: 1,000 GPU-hours against passport #1, under a bailment 
+hash
+  PASS receipt transfer to a wallet outside the allow-list -> 
+NotEligible(0xcd3b766ccdd6ae721141f452c550ca635964ce71)
+  [on-chain] Receipt wrapped to restricted ERC-20 (Morpho Blue accepts ERC-20 
+collateral only) and posted
+  PASS senior and first-loss money both lent: 20,000.00 and 3,000.00 tUSD in one
+pool, 25% of first-loss from Labs
+  [on-chain] Borrowed 1,879.69 tUSD (limit 1,918.05): 1,000 GPU-hours x TCPI x 
+84% oracle value x 62.5% LLTV
+  PASS settings real Morpho could run: 62.5% is an approved LLTV, the 12.68% 
+incentive follows its formula, and the advance is 52.5%
+  PASS origination fee: 9.40 tUSD to Labs, 0.50% of the loan, out of what the 
+borrower drew
+  [on-chain] Second borrower draws 18,796.89 tUSD, so 90% of the pool is lent
+  PASS curator fee: 0.6798 tUSD to Labs, 10% of 6.7979 tUSD of interest
+  PASS senior yield: 4.3843 tUSD, stopped at 8% a year
+  PASS first-loss earned 1.7338 tUSD, all that was left: 21.1% a year on its 
+capital, before any losses
+  PASS Labs' co-investment earned 0.4335 tUSD, its 25% share
+  PASS data licence: Petahour collected 0.0566 tUSD, 0.10% a year on the loans, 
+with no role at Labs
+  [on-chain] Second borrower repays in full, leaving one small loan
+  PASS with the book thin, seniors take all the interest and first-loss earns 
+nothing
+  PASS 60% fall without an emergency flag -> DeviationTooLarge(6000)
+  [on-chain] Emergency print by federation quorum: TCPI falls 60% to US$1.4614
+  PASS position is now under water
+  [on-chain] Liquidated: repaid 1,089.45, seized all collateral, bad debt 791.47
+tUSD
+  PASS collateral fell short of the debt
+  PASS the loss lands at once, with nobody calling anything: first-loss 3,001.73
+to 2,210.26 tUSD
+  PASS senior depositors whole: 20,004.94 tUSD
+  PASS first-loss tranche absorbed it: 3,001.73 to 2,210.26 tUSD
+  PASS Labs took its 25% of the loss: 197.87 tUSD
+  PASS the crash cost 42% of the loan, more than the model's 13% first-loss 
+ratio: seniors are whole here only because this loan is small against the pool
+────────────────────────── Reconciliation and reports ──────────────────────────
+  PASS escrow holds exactly what its ledger owes: 600,048.77 tUSD
+  [off-chain] Simulated regulatory report and 5% VAT invoices written: 8 trades,
+NT$6,551 VAT, statuses {'Settled': 7, 'Defaulted': 1}
+   Gas by operation (real, from receipts)   
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━┓
+┃ operation              ┃ count ┃ avg gas ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━┩
+│ match orders           │     8 │ 426,824 │
+│ claim delivery         │     8 │ 143,474 │
+│ finalize               │     5 │  92,136 │
+│ challenge              │     3 │ 101,979 │
+│ respond with zk proof  │     2 │ 324,450 │
+│ resolve timeout        │     1 │ 117,950 │
+│ mint passport          │     5 │ 353,216 │
+│ record attestation     │     5 │ 137,007 │
+│ publish TCPI           │     3 │ 151,824 │
+│ mint warehouse receipt │     2 │ 228,123 │
+│ borrow                 │     2 │ 204,428 │
+│ liquidate              │     1 │ 160,458 │
+└────────────────────────┴───────┴─────────┘
+───────────────── 61/61 checks passed across 134 transactions ──────────────────

@@ -1,0 +1,50 @@
+# Petahour On-Chain Proof of Concept
+
+A working, tested proof of concept of the Petahour on-chain architecture, covering Petahour Labs, Oracle and Proof-of-Delivery, zkML, Arbitrum/Base and on-chain/off-chain integration. It also includes a pure-Python notebook that explains each mechanism.
+
+*The research calls this venture the Taiwan Compute Exchange, or TCX. It is now Petahour, a name tied to no single country and no single chip. Taiwan is its first market, not its limit.*
+
+## Where to start
+
+| You want to | Open |
+|---|---|
+| Understand the mechanisms quickly | [mini-poc/Petahour_Mini_PoC.ipynb](mini-poc/Petahour_Mini_PoC.ipynb), already executed |
+| See the findings and design | [docs/01_DESIGN.md](docs/01_DESIGN.md) |
+| Install and run | [docs/04_INSTALL_AND_DEPLOY.md](docs/04_INSTALL_AND_DEPLOY.md) |
+| Run a demonstration | [docs/05_USER_MANUAL.md](docs/05_USER_MANUAL.md) |
+| See the evidence | [docs/03_TEST_REPORT.md](docs/03_TEST_REPORT.md) |
+| Change or extend it | [docs/02_IMPLEMENTATION.md](docs/02_IMPLEMENTATION.md) |
+| Rebuild it with Claude Code | [00_CLAUDE_CODE_BUILD_PROMPT.md](00_CLAUDE_CODE_BUILD_PROMPT.md) |
+| See example output | [docs/sample-output/](docs/sample-output/) |
+
+## Quick start
+
+Mini-PoC, from this folder:
+
+```bash
+python3 -m venv ~/petahour-mini && source ~/petahour-mini/bin/activate && pip install -r mini-poc/requirements.txt && jupyter lab mini-poc/Petahour_Mini_PoC.ipynb
+```
+
+Full PoC:
+
+```bash
+cp -R petahour-poc ~/petahour-poc && cd ~/petahour-poc && bash scripts/bootstrap.sh
+```
+
+```bash
+conda activate petahour-poc && make test && make demo
+```
+
+## Status
+
+Tested on a local chain and on forks of live Arbitrum Sepolia and Base Sepolia. Not deployed to a public network. Simulated value only. Not audited. Not legal advice.
+
+## Folder map
+
+```
+README.md                              this file
+00_CLAUDE_CODE_BUILD_PROMPT.md         the prompt
+docs/                                  design, implementation, test report, install, manual
+mini-poc/                              the notebook
+petahour-poc/                               contracts, circuits, services, tests
+```

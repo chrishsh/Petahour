@@ -1,0 +1,23 @@
+{
+  "eth_usd": 2246.01,
+  "networks": {
+    "Arbitrum One": {
+      "gas_price_gwei": 0.02001,
+      "cost_usd": {
+        "normal trade (match + claim + finalize)": 0.02978,
+        "disputed trade (adds challenge + zk proof)": 0.0448
+      }
+    },
+    "Base": {
+      "gas_price_gwei": 0.006,
+      "cost_usd": {
+        "normal trade (match + claim + finalize)": 0.00893,
+        "disputed trade (adds challenge + zk proof)": 0.01343
+      }
+    }
+  },
+  "gas": {
+    "normal trade (match + claim + finalize)": 662434,
+    "disputed trade (adds challenge + zk proof)": 996727
+  }
+}

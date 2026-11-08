@@ -1,0 +1,14 @@
+{
+  "opened": 328,
+  "claimed": 137,
+  "challenged": 82,
+  "settled": 43,
+  "defaulted": 48,
+  "invariantRuns": 65,
+  "losses": 73,
+  "seniorLosses": 20,
+  "excessPaid": 113,
+  "seniorExits": 200,
+  "firstLossExits": 195,
+  "vaultRuns": 65
+}

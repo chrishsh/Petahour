@@ -1,0 +1,538 @@
+{
+  "scenarios": {
+    "S1": {
+      "checks": [
+        {
+          "check": "Passport fee paid by sellers: 720.00 tUSD for 24 GPUs at the 2027 launch price of 30.00 per GPU",
+          "passed": true
+        },
+        {
+          "check": "opML watchtower re-executed trade 1: claim matches telemetry",
+          "passed": true
+        },
+        {
+          "check": "opML watchtower re-executed trade 2: claim matches telemetry",
+          "passed": true
+        },
+        {
+          "check": "opML watchtower re-executed trade 3: claim matches telemetry",
+          "passed": true
+        },
+        {
+          "check": "opML watchtower re-executed trade 4: claim matches telemetry",
+          "passed": true
+        },
+        {
+          "check": "all trades Settled",
+          "passed": true
+        },
+        {
+          "check": "escrow locks fully released",
+          "passed": true
+        },
+        {
+          "check": "marketplace fee from both sides: 17.34 buyer + 17.34 seller = 2.50% of 1,387.47 tUSD delivered",
+          "passed": true
+        },
+        {
+          "check": "Chainlink-shaped feed returns the published print",
+          "passed": true
+        },
+        {
+          "check": "audit: the on-chain inputs hash matches the settled trades",
+          "passed": true
+        },
+        {
+          "check": "audit: below the volume threshold, the print stays on the cost-model reference: US$3.6286",
+          "passed": true
+        }
+      ],
+      "clearing_price_usd": 3.615,
+      "trades": 4,
+      "gpu_hours": 384,
+      "tcpi": 3.628591,
+      "tcpi_basis": "COST-MODEL-SEED",
+      "auction_microseconds": 27
+    },
+    "S2": {
+      "checks": [
+        {
+          "check": "opML watchtower detected the mismatch: claimed uptime 100.00% exceeds measured 87.46%; SLA model fails on the measured telemetry",
+          "passed": true
+        },
+        {
+          "check": "zkML prover could not build a proof: no valid witness exists for a false claim",
+          "passed": true
+        },
+        {
+          "check": "trade Defaulted",
+          "passed": true
+        },
+        {
+          "check": "buyer whole, plus penalty and challenger reward",
+          "passed": true
+        },
+        {
+          "check": "seller lost its full collateral",
+          "passed": true
+        },
+        {
+          "check": "default fund paid the shortfall",
+          "passed": true
+        },
+        {
+          "check": "host suspended: it can no longer sell",
+          "passed": true
+        }
+      ],
+      "measured_uptime_pct": 87.46,
+      "claimed_uptime_pct": 100.0,
+      "default_fund_paid_usd": 48.768249
+    },
+    "S3": {
+      "checks": [
+        {
+          "check": "no raw telemetry value appears in the public inputs",
+          "passed": true
+        },
+        {
+          "check": "trade Settled without any human ruling",
+          "passed": true
+        },
+        {
+          "check": "seller paid, less its fee, and took the challenger's 100 tUSD bond",
+          "passed": true
+        },
+        {
+          "check": "false challenger lost the bond",
+          "passed": true
+        },
+        {
+          "check": "watchtower accepts an honest claim of 87.46% uptime",
+          "passed": true
+        },
+        {
+          "check": "an honest seller is never slashed for reporting an outage",
+          "passed": true
+        },
+        {
+          "check": "seller receives pro-rata payment and its collateral, less its fee and the SLA credit, plus the bond",
+          "passed": true
+        }
+      ],
+      "prover_ms": 479,
+      "verify_and_settle_gas": 323292
+    },
+    "S4": {
+      "checks": [
+        {
+          "check": "screening refused onboarding: Shadow Compute Trading Ltd: DENIED_PARTY",
+          "passed": true
+        },
+        {
+          "check": "screening refused onboarding: Ordinary Trading Co (sim): EAR_COUNTRY_GROUP_D5",
+          "passed": true
+        },
+        {
+          "check": "refused wallet was never enrolled",
+          "passed": true
+        },
+        {
+          "check": "unscreened wallet tries to deposit -> NotEligible(0xcd3b766ccdd6ae721141f452c550ca635964ce71)",
+          "passed": true
+        },
+        {
+          "check": "frozen member's order reaches settlement -> NotEligible(0x1cbd3b2770909d4e10f157cabc84c7264073c9ec)",
+          "passed": true
+        },
+        {
+          "check": "frozen member tries to withdraw -> NotEligible(0x1cbd3b2770909d4e10f157cabc84c7264073c9ec)",
+          "passed": true
+        }
+      ]
+    },
+    "S5": {
+      "checks": [
+        {
+          "check": "compromised matcher overcharges the buyer by 0.0001% -> PriceOutsideLimits()",
+          "passed": true
+        },
+        {
+          "check": "matcher forges the buyer's signature -> BadSignature(0xfabb0ac9d68b0b445fb7357272ff202c5651694a)",
+          "passed": true
+        },
+        {
+          "check": "seller sells GPU-hours it already sold -> Oversold(498481)",
+          "passed": true
+        },
+        {
+          "check": "seller forges telemetry without the sealed TEE key -> InvalidSeal()",
+          "passed": true
+        },
+        {
+          "check": "host with tampered firmware refused by federation: overall attestation result is false",
+          "passed": true
+        },
+        {
+          "check": "one rogue federation node acts alone -> QuorumNotMet()",
+          "passed": true
+        },
+        {
+          "check": "TCPI pushed 3x in one print -> DeviationTooLarge(20000)",
+          "passed": true
+        }
+      ]
+    },
+    "S6": {
+      "checks": [
+        {
+          "check": "Labs admin controls Labs contracts and holds no role on Petahour core",
+          "passed": true
+        },
+        {
+          "check": "audit: print recomputed from on-chain trades alone: US$3.6534",
+          "passed": true
+        },
+        {
+          "check": "Labs onboarding policy refuses retail: denied: Petahour Labs is institutional only",
+          "passed": true
+        },
+        {
+          "check": "Taiwan users are flagged for a Virtual Asset Service Act opinion",
+          "passed": true
+        },
+        {
+          "check": "receipt transfer to a wallet outside the allow-list -> NotEligible(0xcd3b766ccdd6ae721141f452c550ca635964ce71)",
+          "passed": true
+        },
+        {
+          "check": "senior and first-loss money both lent: 20,000.00 and 3,000.00 tUSD in one pool, 25% of first-loss from Labs",
+          "passed": true
+        },
+        {
+          "check": "settings real Morpho could run: 62.5% is an approved LLTV, the 12.68% incentive follows its formula, and the advance is 52.5%",
+          "passed": true
+        },
+        {
+          "check": "origination fee: 9.40 tUSD to Labs, 0.50% of the loan, out of what the borrower drew",
+          "passed": true
+        },
+        {
+          "check": "curator fee: 0.6798 tUSD to Labs, 10% of 6.7979 tUSD of interest",
+          "passed": true
+        },
+        {
+          "check": "senior yield: 4.3843 tUSD, stopped at 8% a year",
+          "passed": true
+        },
+        {
+          "check": "first-loss earned 1.7338 tUSD, all that was left: 21.1% a year on its capital, before any losses",
+          "passed": true
+        },
+        {
+          "check": "Labs' co-investment earned 0.4335 tUSD, its 25% share",
+          "passed": true
+        },
+        {
+          "check": "data licence: Petahour collected 0.0566 tUSD, 0.10% a year on the loans, with no role at Labs",
+          "passed": true
+        },
+        {
+          "check": "with the book thin, seniors take all the interest and first-loss earns nothing",
+          "passed": true
+        },
+        {
+          "check": "60% fall without an emergency flag -> DeviationTooLarge(6000)",
+          "passed": true
+        },
+        {
+          "check": "position is now under water",
+          "passed": true
+        },
+        {
+          "check": "collateral fell short of the debt",
+          "passed": true
+        },
+        {
+          "check": "the loss lands at once, with nobody calling anything: first-loss 3,001.73 to 2,210.26 tUSD",
+          "passed": true
+        },
+        {
+          "check": "senior depositors whole: 20,004.94 tUSD",
+          "passed": true
+        },
+        {
+          "check": "first-loss tranche absorbed it: 3,001.73 to 2,210.26 tUSD",
+          "passed": true
+        },
+        {
+          "check": "Labs took its 25% of the loss: 197.87 tUSD",
+          "passed": true
+        },
+        {
+          "check": "the crash cost 42% of the loan, more than the model's 13% first-loss ratio: seniors are whole here only because this loan is small against the pool",
+          "passed": true
+        }
+      ],
+      "bad_debt_usd": 791.472967,
+      "senior_before_usd": 20004.940871,
+      "senior_after_usd": 20004.940897,
+      "junior_before_usd": 3001.733875,
+      "junior_after_usd": 2210.260908,
+      "first_loss_earned_usd": 1.733839,
+      "first_loss_yearly_pct": 21.095041166666668,
+      "pool_lent_pct": 89.89818010869564,
+      "loss_on_loan_pct": 42.07891110540771
+    }
+  },
+  "network": 31337,
+  "market_mode": "live",
+  "market": {
+    "fx_ntd_per_usd": 32.8428,
+    "fx_source": "open.er-api.com (live)",
+    "quotes": {
+      "B200": {
+        "sku": "B200",
+        "median_usd": 7.5016,
+        "low_usd": 5.5005,
+        "high_usd": 12.5026,
+        "offers": 6,
+        "source": "vast.ai (live asks)"
+      },
+      "H200": {
+        "sku": "H200",
+        "median_usd": 4.6058,
+        "low_usd": 3.2902,
+        "high_usd": 6.8263,
+        "offers": 9,
+        "source": "vast.ai (live asks)"
+      },
+      "H100": {
+        "sku": "H100",
+        "median_usd": 3.0007,
+        "low_usd": 2.1889,
+        "high_usd": 4.046,
+        "offers": 7,
+        "source": "vast.ai (live asks)"
+      },
+      "A100": {
+        "sku": "A100",
+        "median_usd": 0.6674,
+        "low_usd": 0.3739,
+        "high_usd": 1.3372,
+        "offers": 27,
+        "source": "vast.ai (live asks)"
+      },
+      "MI300X": {
+        "sku": "MI300X",
+        "median_usd": 2.6,
+        "low_usd": 2.6,
+        "high_usd": 2.6,
+        "offers": 0,
+        "source": "report Table 3.2 (static)"
+      }
+    },
+    "vendor_index": {
+      "SDB200RT": 6.4922,
+      "SDH100RT": 2.974,
+      "SDA100RT": 1.816
+    },
+    "taken_at": 1794042662.280971,
+    "mode": "live",
+    "cost_model": {
+      "amortization_ntd": 62.4863,
+      "power_ntd": 8.7587,
+      "facility_ntd": 6.5,
+      "network_ntd": 4.5,
+      "subtotal_ntd": 82.2451,
+      "margin_ntd": 16.449,
+      "pre_vat_ntd": 98.6941,
+      "vat_ntd": 4.9347,
+      "domestic_base_ntd": 103.6288,
+      "premium_ntd": 15.5443,
+      "reference_ntd": 119.1731,
+      "reference_usd": 3.6286,
+      "fx_ntd_per_usd": 32.8428
+    },
+    "fx_sensitivity": {
+      "report_fx": 31.0,
+      "live_fx": 32.8428,
+      "report_ntd": 114.09,
+      "live_ntd": 119.17,
+      "report_usd": 3.6804,
+      "live_usd": 3.6286,
+      "ntd_change_pct": 4.45,
+      "usd_change_pct": -1.41
+    },
+    "span_margin_rate": 0.05,
+    "pantera_reconciliation": {
+      "petahour_amortization_usd": 1.9,
+      "pantera_calendar_usd": 1.41,
+      "pantera_at_petahour_utilization_usd": 1.88,
+      "petahour_direct_floor_usd": 2.54,
+      "pantera_direct_usd": 2.27,
+      "direct_gap_usd": 0.27
+    }
+  },
+  "tcpi_basis": {
+    "tcpi_usd": 3.6286,
+    "contract_gpu_hours": 730,
+    "tcpi_contract_value_usd": 2648.87,
+    "vendor_usd": 6.4922,
+    "basis_usd": -2.8636,
+    "basis_per_contract_usd": -2090.43
+  },
+  "reconciliation": {
+    "checks": [
+      {
+        "check": "escrow holds exactly what its ledger owes: 600,048.77 tUSD",
+        "passed": true
+      }
+    ]
+  },
+  "gas": {
+    "enroll member": {
+      "count": 9,
+      "avg": 71442
+    },
+    "mint tUSD": {
+      "count": 20,
+      "avg": 50968
+    },
+    "approve escrow": {
+      "count": 10,
+      "avg": 45931
+    },
+    "deposit": {
+      "count": 9,
+      "avg": 66900
+    },
+    "approve fund": {
+      "count": 1,
+      "avg": 45933
+    },
+    "seed default fund": {
+      "count": 1,
+      "avg": 73433
+    },
+    "approve passport fee": {
+      "count": 5,
+      "avg": 45921
+    },
+    "mint passport": {
+      "count": 5,
+      "avg": 353216
+    },
+    "record attestation": {
+      "count": 5,
+      "avg": 137007
+    },
+    "list capacity": {
+      "count": 5,
+      "avg": 104573
+    },
+    "match orders": {
+      "count": 8,
+      "avg": 426824
+    },
+    "claim delivery": {
+      "count": 8,
+      "avg": 143474
+    },
+    "finalize": {
+      "count": 5,
+      "avg": 92136
+    },
+    "publish TCPI": {
+      "count": 3,
+      "avg": 151824
+    },
+    "challenge": {
+      "count": 3,
+      "avg": 101979
+    },
+    "resolve timeout": {
+      "count": 1,
+      "avg": 117950
+    },
+    "respond with zk proof": {
+      "count": 2,
+      "avg": 324450
+    },
+    "freeze member": {
+      "count": 1,
+      "avg": 31031
+    },
+    "unfreeze": {
+      "count": 1,
+      "avg": 30218
+    },
+    "labs enroll": {
+      "count": 5,
+      "avg": 71442
+    },
+    "mint warehouse receipt": {
+      "count": 2,
+      "avg": 228123
+    },
+    "approve wrapper": {
+      "count": 2,
+      "avg": 48340
+    },
+    "wrap receipt": {
+      "count": 2,
+      "avg": 130238
+    },
+    "approve market": {
+      "count": 4,
+      "avg": 45959
+    },
+    "post collateral": {
+      "count": 2,
+      "avg": 76400
+    },
+    "approve vault": {
+      "count": 2,
+      "avg": 45933
+    },
+    "vault deposit": {
+      "count": 2,
+      "avg": 178661
+    },
+    "fund Labs from its own raise": {
+      "count": 1,
+      "avg": 50973
+    },
+    "Labs co-invests in first-loss": {
+      "count": 1,
+      "avg": 192176
+    },
+    "allocate to market": {
+      "count": 1,
+      "avg": 148851
+    },
+    "borrow": {
+      "count": 2,
+      "avg": 204428
+    },
+    "settle the waterfall": {
+      "count": 3,
+      "avg": 110484
+    },
+    "collect data licence": {
+      "count": 1,
+      "avg": 73262
+    },
+    "repay": {
+      "count": 1,
+      "avg": 74866
+    },
+    "liquidate": {
+      "count": 1,
+      "avg": 160458
+    }
+  },
+  "transactions": 134,
+  "checks_passed": 61,
+  "checks_total": 61
+}
